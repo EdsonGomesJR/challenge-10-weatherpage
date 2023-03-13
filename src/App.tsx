@@ -88,49 +88,66 @@ function App() {
               </footer>
             </div>
           </section>
-          <section className="grid grid-cols-2 gap-8">
-            <div className="flex bg-[#6D67D0] flex-col w-[277px] h-[244px]  rounded-[10px] items-center justify-between p-4 pt-8 ">
-              <div className="flex gap-2 text-[#DAD8F7]   font-bold">
-                <Leaf className="text-2xl" />
-                <span>Qualidade do ar</span>
+
+          <section className="grid grid-cols-2 gap-6">
+            <div className="flex bg-[#6D67D0] flex-col gap-8  rounded-[0.625rem] items-center p-4 pt-8 ">
+              <div className="flex gap-2 p-0 text-[#DAD8F7] font-bold items-center">
+                <Leaf width="1.5rem" height="1.5rem" />
+                <span className="text-[1.1875rem]">Qualidade do ar</span>
               </div>
-              <div className="flex flex-col items-center text-white gap-2 ">
-                <span className="text-lg font-bold text-[#87EBCD]">Boa</span>
-                <span className="text-4xl font-bold text-[#E7E6FB]">21</span>
+              <div className="flex flex-col items-center text-white gap-1 ">
+                <span className="text-[1.125rem] leading-[1.375rem] font-bold text-[#87EBCD]">
+                  Boa
+                </span>
+                <span className="text-[2.5rem] leading-[3rem] font-bold text-[#E7E6FB]">
+                  21
+                </span>
               </div>
               <div className="grid grid-cols-6 gap-4">
-                <div className="flex items-center justify-center flex-col text-sm ">
-                  <span className="text-[#87EBCD]  font-bold">12.9</span>
-                  <span className="text-[12px]  text-[#E7E6FB] font-normal">
+                <div className="flex items-center justify-center flex-col gap-[0.125rem] ">
+                  <span className="text-[#87EBCD] text-[0.875rem] leading-[1.0625rem] font-bold">
+                    12.9
+                  </span>
+                  <span className="text-[0.75rem]  text-[#E7E6FB] font-normal">
                     PM2.5
                   </span>
                 </div>
                 <div className="flex items-center justify-center flex-col text-sm ">
-                  <span className="text-[#87EBCD]  font-bold">12.9</span>
+                  <span className="text-[#87EBCD] text-[0.875rem] leading-[1.0625rem] font-bold">
+                    12.9
+                  </span>
                   <span className="text-[12px]  text-[#E7E6FB] font-normal">
                     PM10
                   </span>
                 </div>
-                <div className="flex items-center justify-center flex-col text-sm ">
-                  <span className="text-[#87EBCD]  font-bold">2.1</span>
+                <div className="flex items-center justify-center flex-col  ">
+                  <span className="text-[#87EBCD] text-[0.875rem] leading-[1.0625rem]  font-bold">
+                    2.1
+                  </span>
                   <span className="text-[12px]  text-[#E7E6FB] font-normal">
                     SO<sub>2</sub>
                   </span>
                 </div>
-                <div className="flex items-center justify-center flex-col  text-sm ">
-                  <span className="text-[#87EBCD]  font-bold">1.4</span>
+                <div className="flex items-center justify-center flex-col ">
+                  <span className="text-[#87EBCD] text-[0.875rem] leading-[1.0625rem] font-bold">
+                    1.4
+                  </span>
                   <span className="text-[12px]  text-[#E7E6FB] font-normal">
                     NO<sub>2</sub>
                   </span>
                 </div>
-                <div className="flex items-center justify-center flex-col  text-sm ">
-                  <span className="text-[#87EBCD] font-bold">21.2</span>
+                <div className="flex items-center justify-center flex-col ">
+                  <span className="text-[#87EBCD] text-[0.875rem] leading-[1.0625rem] font-bold">
+                    21.2
+                  </span>
                   <span className="text-[12px]  text-[#E7E6FB] font-normal">
                     O<sub className="">2</sub>
                   </span>
                 </div>
-                <div className="flex items-center text-center justify-center flex-col  text-sm place-items-center">
-                  <span className="text-[#87EBCD]   font-bold">0.7</span>
+                <div className="flex items-center text-center justify-center flex-col place-items-center">
+                  <span className="text-[#87EBCD]  text-[0.875rem] leading-[1.0625rem]  font-bold">
+                    0.7
+                  </span>
                   <span className="text-[12px]  text-[#E7E6FB]">
                     CO<sub>2</sub>
                   </span>
@@ -146,39 +163,39 @@ function App() {
                 <Chart width={245} height={148} />
               </div>
             </div>
-            <div className="grid col-span-2 grid-cols-5 p-10 text-[#DAD8F7] bg-[#6D67D0] rounded-[10px] gap-3 ">
+            <div className="grid col-span-2 grid-cols-5 p-10 text-[#DAD8F7] bg-[#6D67D0] rounded-[10px] gap-3">
               <div className=" flex flex-col items-center justify-center gap-4">
-                <span>Amanhã</span>
+                <span className="text-sm font-bold ">Amanhã</span>
                 <img className="w-16 h-16" src={cloud1} alt="Nublado" />
-                <span className="text-white">
+                <span className="text-white ">
                   21º<span className="text-[#DAD8F7]"> 16º</span>
                 </span>
               </div>
               <div className="flex flex-col items-center justify-center gap-4">
-                <span>Sexta-feira</span>
+                <span className="text-sm font-bold ">Sexta-feira</span>
                 <img src={sun} alt="Sol" />
-                <span className="text-white">
+                <span className="text-white ">
                   28º <span className="text-[#DAD8F7]"> 20º</span>
                 </span>
               </div>
               <div className="flex flex-col items-center justify-center gap-4">
-                <span>Sábado</span>
+                <span className="text-sm font-bold ">Sábado</span>
                 <img src={rain1} alt="Chuva" />
-                <span className="text-white">
+                <span className="text-white ">
                   25º <span className="text-[#DAD8F7]"> 21º</span>
                 </span>
               </div>
               <div className="flex flex-col items-center justify-center gap-4">
-                <span>Domingo</span>
+                <span className="text-sm font-bold ">Domingo</span>
                 <img src={cloudbolt} alt="Temporal" />
-                <span className="text-white">
+                <span className="text-white ">
                   20º <span className="text-[#DAD8F7]"> 14º</span>
                 </span>
               </div>
               <div className="flex flex-col items-center justify-center gap-4">
-                <span>Segunda-feira</span>
+                <span className="text-sm font-bold ">Segunda-feira</span>
                 <img src={cloudsun} alt="Parcialmente Nublado" />
-                <span className="text-white">
+                <span className="text-white ">
                   24º <span className="text-[#DAD8F7]"> 18º</span>
                 </span>
               </div>
