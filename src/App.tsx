@@ -11,6 +11,8 @@ import cloudsun from "./assets/days-section/cloudsun.svg";
 import rain1 from "./assets/days-section/rain1.svg";
 import sun from "./assets/days-section/sun.svg";
 
+import { Chart, Humidity, Leaf, Pin, Rain, Time, Wind } from "./iconComponents";
+
 function App() {
   return (
     <body className="w-[100vw] h-[100vh] grid place-items-center">
@@ -20,8 +22,9 @@ function App() {
             <div className="temperature-now w-full h-full   rounded-xl  p-3 ">
               <header className="relative">
                 <div className="cidade w-[176px] h-[176px] absolute top-[-70px] right-[360px]  bg-[url(./assets/cloud.svg)]"></div>
-                <div className="flex gap-1 justify-end p-5 ">
-                  <img src={pin} alt="icon" />
+                <div className="flex gap-1 justify-end p-5 items-center ">
+                  <Pin className="text-xl text-[#9D99E4]" />
+
                   <span className="text-[#C2BFF4] font-bold">
                     {" "}
                     Rio do Sul, SC
@@ -43,7 +46,8 @@ function App() {
                 <div className="grid grid-cols-3 gap-2 ">
                   {/* Wind */}
                   <div className="vento gap-3 py-3 px-4 rounded-lg bg-[#6660C8]/[0.6] flex">
-                    <img className="" src={wind} alt="wind" />
+                    {/* <img className="" src={wind} alt="wind" /> */}
+                    <Wind className="text-4xl" />
                     <div className="flex flex-col text-[#E7E6FB]">
                       <span className="text-xs leading-[14px]">Vento</span>
                       <div className="flex items-center jutify-center gap-1">
@@ -56,7 +60,7 @@ function App() {
                   </div>
                   {/* Humidity */}
                   <div className="vento gap-3 py-3 px-4 rounded-lg bg-[#6660C8]/[0.6] flex">
-                    <img className="" src={humidity} alt="humidity" />
+                    <Humidity className="text-4xl" />
                     <div className="flex flex-col text-[#E7E6FB]">
                       <span className="text-xs leading-[14px]">Umidade</span>
                       <div className="flex items-center jutify-center gap-1">
@@ -69,7 +73,7 @@ function App() {
                   </div>
                   {/* Rain */}
                   <div className="vento gap-3 py-3 px-4 rounded-lg bg-[#6660C8]/[0.6] flex">
-                    <img className="" src={rain} alt="rain" />
+                    <Rain className="text-4xl" />
                     <div className="flex flex-col text-[#E7E6FB]">
                       <span className="text-xs leading-[14px]">Chuva</span>
                       <div className="flex items-center jutify-center gap-1">
@@ -86,8 +90,8 @@ function App() {
           </section>
           <section className="grid grid-cols-2 gap-8">
             <div className="flex bg-[#6D67D0] flex-col w-[277px] h-[244px]  rounded-[10px] items-center justify-between p-4 pt-8 ">
-              <div className="flex gap-2 text-[#DAD8F7]  font-bold">
-                <img src={leaf} alt="Leaf" />
+              <div className="flex gap-2 text-[#DAD8F7]   font-bold">
+                <Leaf className="text-2xl" />
                 <span>Qualidade do ar</span>
               </div>
               <div className="flex flex-col items-center text-white gap-2 ">
@@ -135,11 +139,11 @@ function App() {
             </div>
             <div className="flex bg-[#6D67D0] flex-col w-[277px] h-[244px]  rounded-[10px] items-center justify-between p-4 pt-8">
               <div className="flex items-center justify-center gap-2">
-                <img src={time} alt="Time" />
+                <Time className="text-2xl" />
                 <span className="font-bold text-[#DAD8F7]">Horário do sol</span>
               </div>
               <div>
-                <img src={chart} alt="Chart" />
+                <Chart width={245} height={148} />
               </div>
             </div>
             <div className="grid col-span-2 grid-cols-5 p-10 text-[#DAD8F7] bg-[#6D67D0] rounded-[10px] gap-3 ">
