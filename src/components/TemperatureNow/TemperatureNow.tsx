@@ -1,6 +1,9 @@
 import { Humidity, Pin, Rain, Wind } from "../../iconComponents";
 
-export function TemperatureNow() {
+interface TemperatureNowProps {
+  cityName: string;
+}
+export function TemperatureNow({ cityName }: TemperatureNowProps) {
   return (
     <div className="temperature-now w-full h-full   rounded-xl  p-3 ">
       <header className="relative">
@@ -8,7 +11,7 @@ export function TemperatureNow() {
         <div className="flex gap-1 justify-end p-5 items-center ">
           <Pin className="text-xl text-[#9D99E4]" />
 
-          <span className="text-[#C2BFF4] font-bold"> Rio do Sul, SC</span>
+          <span className="text-[#C2BFF4] font-bold"> {cityName}</span>
         </div>
       </header>
       <div className=" grid place-items-center mt-[60px] text-white">

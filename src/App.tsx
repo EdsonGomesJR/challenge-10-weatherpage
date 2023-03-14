@@ -1,28 +1,48 @@
-import wind from "./assets/wind.svg";
-import humidity from "./assets/humidity.svg";
-import rain from "./assets/rain.svg";
-import pin from "./assets/pin.svg";
-import leaf from "./assets/leaf.svg";
-import time from "./assets/time.svg";
-import chart from "./assets/chart.svg";
-import cloud1 from "./assets/days-section/cloud1.svg";
-import cloudbolt from "./assets/days-section/cloudbolt.svg";
-import cloudsun from "./assets/days-section/cloudsun.svg";
-import rain1 from "./assets/days-section/rain1.svg";
-import sun from "./assets/days-section/sun.svg";
-
 import { AirQuality } from "./components/WeatherStatus/AirQuality";
 import { SunTimeChart } from "./components/WeatherStatus/SunTimeChart";
 import { DaysOfWeek } from "./components/WeatherStatus/DaysOfWeek";
 import { TemperatureNow } from "./components/TemperatureNow/TemperatureNow";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [cityName, setCityName] = useState("");
+  const [latitude, setLatitude] = useState(0);
+  const [longitude, setLongitude] = useState(0);
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position: GeolocationPosition) => {
+          setLatitude(position.coords.latitude);
+          setLongitude(position.coords.longitude);
+          console.log(latitude, longitude);
+        }
+      );
+    }
+    getCurrentLatLong();
+  }, [latitude]);
+
+  const api = {
+    key: "5499337e5165c2d553efb6f9d6d1eee1",
+    url: "https://api.openweathermap.org/data/2.5/",
+    lang: "pt_br",
+    unit: "metric",
+  };
+
+  async function getCurrentLatLong() {
+    const request = await fetch(
+      `${api.url}weather?lat=${latitude}&lon=${longitude}&lang=${api.lang}&units=${api.unit}&APPID=${api.key}`
+    );
+    const response = await request.json();
+
+    return setCityName(response.name);
+  }
   return (
-    <body className="flex items-center justify-center h-[100vh]">
+    <div className="flex items-center justify-center h-[100vh]">
       <main className="w-[85.375rem] h-[48rem] rounded-2xl  overflow-hidden bg-[url(./assets/bgnoblur.svg)]  bg-no-repeat bg-cover">
         <div className="w-full h-full backdrop-blur-xl grid place-items-center  grid-flow-col  justify-center gap-8">
           <section className=" grid w-[30rem]  place-items-center rounded-xl bg-[url(./assets/tempnow.svg)] bg-no-repeat bg-cover ">
-            <TemperatureNow />
+            <TemperatureNow cityName={cityName} />
           </section>
 
           <section className="grid grid-cols-2 gap-6">
@@ -32,7 +52,7 @@ function App() {
           </section>
         </div>
       </main>
-    </body>
+    </div>
   );
 }
 
